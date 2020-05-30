@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigator"
+    android:label="@string/knowledge"
+    app:startDestination="@id/navigationKnowledge">
+
+    <fragment
+        android:id="@+id/navigationKnowledge"
+        android:name="com.education.kidfunlearning.ui.knowledge.KnowledgeFragment"
+        android:label="@string/knowledge"
+        tools:layout="@layout/fragment_knowledge" />
+    <fragment
+        android:id="@+id/navigationStatistic"
+        android:name="com.education.kidfunlearning.ui.statistic.StatisticFragment"
+        android:label="@string/statistic"
+        tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/navigationMyActivity"
+        android:name="com.education.kidfunlearning.ui.activity.ActivityFragment"
+        android:label="@string/activity"
+        tools:layout="@layout/fragment_activity" />
+    <fragment
+        android:id="@+id/navigationSetting"
+        android:name="com.education.kidfunlearning.ui.settings.SettingFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>

@@ -1,8 +1,5 @@
 package com.education.kidfunlearning;
 
-/**
- * Created by kapil on 20/01/17.
- */
 import android.content.Context;
 import android.content.SharedPreferences;
 

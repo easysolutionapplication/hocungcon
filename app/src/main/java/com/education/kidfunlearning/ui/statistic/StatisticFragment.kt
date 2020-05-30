@@ -1,4 +1,4 @@
-package com.education.kidfunlearning.ui.dashboard
+package com.education.kidfunlearning.ui.statistic
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.education.kidfunlearning.R
 
-class DashboardFragment : Fragment() {
+class StatisticFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var statisticViewModel: StatisticViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        statisticViewModel =
+                ViewModelProviders.of(this).get(StatisticViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_statistic, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        statisticViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

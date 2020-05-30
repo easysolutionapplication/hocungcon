@@ -1,4 +1,4 @@
-package com.education.kidfunlearning.ui.notifications
+package com.education.kidfunlearning.ui.knowledge
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.education.kidfunlearning.R
 
-class NotificationsFragment : Fragment() {
+class KnowledgeFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var knowledgeViewModel: KnowledgeViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        knowledgeViewModel =
+                ViewModelProviders.of(this).get(KnowledgeViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_activity, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        knowledgeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
