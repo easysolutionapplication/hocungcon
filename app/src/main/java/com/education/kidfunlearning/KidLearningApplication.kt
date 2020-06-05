@@ -1,14 +1,15 @@
 package com.education.kidfunlearning
 
-import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
+import androidx.multidex.MultiDexApplication
 import com.education.kidfunlearning.di.AppComponent
 import com.education.kidfunlearning.di.AppModule
 import com.education.kidfunlearning.di.DaggerAppComponent
 import com.jakewharton.threetenabp.AndroidThreeTen
 import com.squareup.leakcanary.LeakCanary
 
-class KidLearningApplication :Application() {
+class KidLearningApplication : MultiDexApplication() {
 
     lateinit var component: AppComponent
 
@@ -19,11 +20,15 @@ class KidLearningApplication :Application() {
     companion object {
         lateinit var instance: KidLearningApplication private set
     }
+
     operator fun get(context: Context): KidLearningApplication {
         return context.applicationContext as KidLearningApplication
     }
 
-
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(newBase)
+        MultiDex.install(this)
+    }
 
     override fun onCreate() {
         super.onCreate()
