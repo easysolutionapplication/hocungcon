@@ -12,7 +12,7 @@ data class Category(
     val image: String,
     val requiredMinAge: Int,
     val requiredMaxAge: Int,
-    val country: Country
+    val country: List<Country>
 )
 
 enum class Country(val code: String) {
@@ -24,6 +24,10 @@ enum class Country(val code: String) {
     KOREA("ko");
 
     companion object{
-        fun find(value: String): Country = values().firstOrNull { it.code == value } ?: ALL
+        fun find(value: String, exist: Boolean): Country = values().firstOrNull { it.code == value } ?: ALL
+
+        fun find(value: String): List<Country> {
+            return value.split(",").map { find(it, false) }
+        }
     }
 }
